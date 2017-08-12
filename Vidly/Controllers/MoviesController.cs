@@ -38,5 +38,9 @@ namespace Vidly.Controllers
             return Content(String.Format("pageIndex={0} && sortBy={1}", pageIndex, sortBy));
 
         }
+        public ActionResult Action()
+        {
+            return View();
+        }
     }
 }
