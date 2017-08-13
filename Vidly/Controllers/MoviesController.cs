@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -12,14 +13,57 @@ namespace Vidly.Controllers
         // GET: Movies/Random
         public ActionResult Random()
         {
-            var movie = new Movie(){  Name = "Shrek!" };
+            var movie = new Movie() { Name = "Shrek!" };
 
-              return View( movie);
+
+            #region dataToView
+            // viewResult.ViewData.Model
+
+            // ViewData["Movie"] = movie;  --> modo lixo de enviar dada pra view
+            // ViewBag.Movie = movie; --> modo lixo de enviar dada pra view
+            #endregion  
+
+            var customers = new List<Custumer>
+            {
+                new Custumer()
+                {
+                    Name = "Allan Passos"
+                },
+                new Custumer()
+                {
+                    Name = "Guilherme Okubo"
+                },
+                new Custumer()
+                {
+                    Name = "Kawana Okubo"
+                },
+                new Custumer()
+                {
+                    Name = "Nikolas Okubo"
+                },
+                new Custumer()
+                {
+                    Name = "Yasmim Okubo"
+                }
+            };
+
+            var viewModel = new RandomMovieViewModel
+            {
+                Customers = customers,
+                Movie = movie
+            };
+
+
+            return View(viewModel);
+
+
+
+
             //return Content("teste");
             // return HttpNotFound();
             //return new EmptyResult();
             //return RedirectToAction("Index","Home", new { page =1, sortBy = "name" });
-            
+
         }
 
         public ActionResult Edit(int id)
@@ -32,7 +76,7 @@ namespace Vidly.Controllers
         {
             if (!pageIndex.HasValue)
                 pageIndex = 1;
-            if(string.IsNullOrWhiteSpace(sortBy))
+            if (string.IsNullOrWhiteSpace(sortBy))
                 sortBy = "Name";
 
             return Content(String.Format("pageIndex={0} && sortBy={1}", pageIndex, sortBy));
