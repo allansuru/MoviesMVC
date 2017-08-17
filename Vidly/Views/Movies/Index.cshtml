@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Vidly.Models.Movie>
+
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+  //  var className = Model.Customers.Count >= 5 ? "popular" : null;
+
+
+  
+}
+
+
+<h2>Customers</h2>
+
+@if (!Model.Any())
+{
+    <p> don't have any Movie yet</p>
+}
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Movie</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

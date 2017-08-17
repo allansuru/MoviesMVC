@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
-using Vidly.ViewModels;
+
 
 namespace Vidly.Controllers
 {
@@ -25,36 +25,35 @@ namespace Vidly.Controllers
 
             var customers = new List<Custumer>
             {
-                new Custumer()
+                new Custumer
                 {
                     Name = "Allan Passos"
                 },
-                new Custumer()
+                new Custumer
                 {
                     Name = "Guilherme Okubo"
                 },
-                new Custumer()
+                new Custumer
                 {
                     Name = "Kawana Okubo"
                 },
-                new Custumer()
+                new Custumer
                 {
                     Name = "Nikolas Okubo"
                 },
-                new Custumer()
+                new Custumer
                 {
                     Name = "Yasmim Okubo"
                 }
             };
 
-            var viewModel = new RandomMovieViewModel
-            {
-                Customers = customers,
-                Movie = movie
-            };
+            //var viewModel = new RandomMovieViewModel
+            //{
+            //    Customers = customers,             
+            //};
 
 
-            return View(viewModel);
+            return View("");
 
 
 
@@ -71,17 +70,32 @@ namespace Vidly.Controllers
 
             return Content("id=" + id);
         }
-        //movies
-        public ActionResult Index(int? pageIndex, string sortBy)
+        public ViewResult Index()
         {
-            if (!pageIndex.HasValue)
-                pageIndex = 1;
-            if (string.IsNullOrWhiteSpace(sortBy))
-                sortBy = "Name";
-
-            return Content(String.Format("pageIndex={0} && sortBy={1}", pageIndex, sortBy));
+            var movies = GetMovies();
+            return View(movies);
+        }
+        private IEnumerable<Movie> GetMovies()
+        {
+            return new List<Movie>()
+            {
+                new Movie(){ Id= 1, Name="Sparta" }, new Movie{ Id=2, Name="Mr.Robot" }
+            };
 
         }
+
+
+        //movies
+        //public ActionResult Index(int? pageIndex, string sortBy)
+        //{
+        //    if (!pageIndex.HasValue)
+        //        pageIndex = 1;
+        //    if (string.IsNullOrWhiteSpace(sortBy))
+        //        sortBy = "Name";
+
+        //    return Content(String.Format("pageIndex={0} && sortBy={1}", pageIndex, sortBy));
+
+        //}
         [Route("movies/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult ByReleaseDate(int year, int month)
         {
