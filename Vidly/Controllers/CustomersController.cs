@@ -21,11 +21,13 @@ namespace Vidly.Controllers
         {
             var customers = GetCustomers().SingleOrDefault(c => c.Id == id);
 
+            
+
             if (customers == null)
                 return HttpNotFound();
 
             return View(customers);
-        }
+        }   
 
         private IEnumerable<Custumer> GetCustomers()
         {
