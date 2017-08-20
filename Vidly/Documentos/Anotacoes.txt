@@ -1,0 +1,11 @@
+﻿Receitinha de bolo para usar Migrations | CodeFirst
+
+OBS: Antes de tudo hablitar entity framework - code first
+https://msdn.microsoft.com/pt-br/library/jj591330.aspx
+
+
+
+1 º - Add-Migration <nomeQualquer> EX: Add-Migration AddMembershipType
+Logo após criar um ponto de restore, vou atualizar o bganco
+
+2 º - Update-Database

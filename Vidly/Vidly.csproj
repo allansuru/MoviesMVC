@@ -166,16 +166,35 @@
     <Compile Include="Migrations\201708192040284_InitialModel.Designer.cs">
       <DependentUpon>201708192040284_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708201923596_AddIsSubscribedTOCustomer.cs" />
+    <Compile Include="Migrations\201708201923596_AddIsSubscribedTOCustomer.Designer.cs">
+      <DependentUpon>201708201923596_AddIsSubscribedTOCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708201940546_AddMembershipType.cs" />
+    <Compile Include="Migrations\201708201940546_AddMembershipType.Designer.cs">
+      <DependentUpon>201708201940546_AddMembershipType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708201950200_PopularTabelaMembershipTypes.cs" />
+    <Compile Include="Migrations\201708201950200_PopularTabelaMembershipTypes.Designer.cs">
+      <DependentUpon>201708201950200_PopularTabelaMembershipTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708202005305_ApplyDataAnnotationToCustomerName.cs" />
+    <Compile Include="Migrations\201708202005305_ApplyDataAnnotationToCustomerName.Designer.cs">
+      <DependentUpon>201708202005305_ApplyDataAnnotationToCustomerName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Custumer.cs" />
+    <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Documentos\Anotacoes.txt" />
+    <Content Include="Documentos\atalho_console_VS_packageConsole.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -187,6 +206,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="bower.json" />
+    <Content Include="Documentos\Entity-Framework-Cheat-Sheet.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -242,6 +262,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708192040284_InitialModel.resx">
       <DependentUpon>201708192040284_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708201923596_AddIsSubscribedTOCustomer.resx">
+      <DependentUpon>201708201923596_AddIsSubscribedTOCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708201940546_AddMembershipType.resx">
+      <DependentUpon>201708201940546_AddMembershipType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708201950200_PopularTabelaMembershipTypes.resx">
+      <DependentUpon>201708201950200_PopularTabelaMembershipTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708202005305_ApplyDataAnnotationToCustomerName.resx">
+      <DependentUpon>201708202005305_ApplyDataAnnotationToCustomerName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
