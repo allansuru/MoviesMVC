@@ -1,39 +1,37 @@
 ﻿@model IEnumerable<Vidly.Models.Movie>
 
 @{
-    ViewBag.Title = "Customers";
+    ViewBag.Title = "Movies";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@{
-  //  var className = Model.Customers.Count >= 5 ? "popular" : null;
 
-
-  
-}
-
-
-<h2>Customers</h2>
-
+<h2>Movies</h2>
+<br />
 @if (!Model.Any())
 {
-    <p> don't have any Movie yet</p>
+    <p> don't have any Movies yet</p>
 }
 else
 {
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Movie</th>
+                <th>Movies</th>
+                <th>Genre</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.Name</td>
+                    <td>@Html.ActionLink(item.Name,"Details","Movies", new { id = item.Id }, null)</td>
+                    <td>@item.Genre.Name</td>
+
                 </tr>
+
             }
         </tbody>
     </table>
 }
+

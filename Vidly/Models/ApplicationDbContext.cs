@@ -7,6 +7,7 @@ namespace Vidly.Models
     {
         public DbSet<Custumer> Customers { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Genre> Genres { get; set; }
         public ApplicationDbContext()
                  : base("conn", throwIfV1Schema: false)
         {
