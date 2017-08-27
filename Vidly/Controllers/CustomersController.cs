@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModel;
 
 namespace Vidly.Controllers
 {
@@ -15,6 +16,53 @@ namespace Vidly.Controllers
         public CustomersController()
         {
             _context = new ApplicationDbContext();
+        }
+
+        public ActionResult New()
+        {
+            var membershipType = _context.MembershipTypes.ToList();
+            //aqui como temos um controller do Customer e temos q adicionar um combo com os membershipstypes, tive que criar uma viewmodel com as infos, boas praticas de solid
+            var viewModel = new CustomerFormViewModel
+            {
+                MembershipType = membershipType // recebo a lista no meu ienumerable da minha viewmodel
+            };
+
+            
+            
+            return View("CustomerForm",viewModel);
+        }
+
+        [HttpPost]
+        public ActionResult Save(Customer customer)
+        {
+
+            var viewModel = new CustomerFormViewModel()
+            {
+                Customer = customer,
+                MembershipType = _context.MembershipTypes.ToList()
+            };
+
+            if(customer.Id == 0)
+                _context.Customers.Add(customer);
+            else
+            {
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+
+                //TryUpdateModel(customerInDb); //abordagem ruim, porem, oficial da MS.
+
+
+                //aqui entraria um automapper pra fazer isso com uma linha só 
+                //Mapper.Map(customer, customerInDb);
+
+                customerInDb.Name = customer.Name;
+                customerInDb.BirthDate = customer.BirthDate;
+                customerInDb.MembershipTypeId = customer.MembershipTypeId;
+                customer.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+
+            }
+            _context.SaveChanges();
+
+            return RedirectToAction("Index","Customers");
         }
         protected override void Dispose(bool disposing)
         {
@@ -41,21 +89,39 @@ namespace Vidly.Controllers
                 return HttpNotFound();
 
             return View(customers);
-        }   
+        }
 
-        private IEnumerable<Custumer> GetCustomers()
+        public ActionResult Edit(int id)
         {
-            return new List<Custumer>
+            var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
+
+            if (customer == null)
+                return HttpNotFound();
+
+
+            var viewModel = new CustomerFormViewModel()
             {
-                new Custumer
+                Customer = customer,
+                MembershipType =_context.MembershipTypes.ToList()
+            };
+
+
+            return View("CustomerForm", viewModel);
+        }
+
+        private IEnumerable<Customer> GetCustomers()
+        {
+            return new List<Customer>
+            {
+                new Customer
                 {
                     Id =1, Name = "Allan Passoso"
                 },
-                new Custumer
+                new Customer
                 {
                     Id = 2, Name = "Kawana Okubo"
                 },
-                new Custumer
+                new Customer
                 {
                     Id =3, Name = "Guilherme Okubo"
                 }

@@ -31,25 +31,25 @@ namespace Vidly.Controllers
             // ViewBag.Movie = movie; --> modo lixo de enviar dada pra view
             #endregion  
 
-            var customers = new List<Custumer>
+            var customers = new List<Customer>
             {
-                new Custumer
+                new Customer
                 {
                     Name = "Allan Passos"
                 },
-                new Custumer
+                new Customer
                 {
                     Name = "Guilherme Okubo"
                 },
-                new Custumer
+                new Customer
                 {
                     Name = "Kawana Okubo"
                 },
-                new Custumer
+                new Customer
                 {
                     Name = "Nikolas Okubo"
                 },
-                new Custumer
+                new Customer
                 {
                     Name = "Yasmim Okubo"
                 }
