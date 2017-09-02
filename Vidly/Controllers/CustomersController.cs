@@ -36,12 +36,6 @@ namespace Vidly.Controllers
         public ActionResult Save(Customer customer)
         {
 
-            var viewModel = new CustomerFormViewModel()
-            {
-                Customer = customer,
-                MembershipType = _context.MembershipTypes.ToList()
-            };
-
             if(customer.Id == 0)
                 _context.Customers.Add(customer);
             else
@@ -57,7 +51,7 @@ namespace Vidly.Controllers
                 customerInDb.Name = customer.Name;
                 customerInDb.BirthDate = customer.BirthDate;
                 customerInDb.MembershipTypeId = customer.MembershipTypeId;
-                customer.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
+                customerInDb.IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter;
 
             }
             _context.SaveChanges();
