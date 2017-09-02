@@ -238,22 +238,6 @@
     <Compile Include="Migrations\201708240032430_DeleteMovies1.Designer.cs">
       <DependentUpon>201708240032430_DeleteMovies1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201708292341479_Ajustes Model Movies.cs" />
-    <Compile Include="Migrations\201708292341479_Ajustes Model Movies.Designer.cs">
-      <DependentUpon>201708292341479_Ajustes Model Movies.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708300013357_Correcoes.cs" />
-    <Compile Include="Migrations\201708300013357_Correcoes.Designer.cs">
-      <DependentUpon>201708300013357_Correcoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708300058276_teste.cs" />
-    <Compile Include="Migrations\201708300058276_teste.Designer.cs">
-      <DependentUpon>201708300058276_teste.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201708310017473_eita.cs" />
-    <Compile Include="Migrations\201708310017473_eita.Designer.cs">
-      <DependentUpon>201708310017473_eita.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -397,18 +381,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708240032430_DeleteMovies1.resx">
       <DependentUpon>201708240032430_DeleteMovies1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708292341479_Ajustes Model Movies.resx">
-      <DependentUpon>201708292341479_Ajustes Model Movies.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708300013357_Correcoes.resx">
-      <DependentUpon>201708300013357_Correcoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708300058276_teste.resx">
-      <DependentUpon>201708300058276_teste.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201708310017473_eita.resx">
-      <DependentUpon>201708310017473_eita.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
