@@ -24,6 +24,7 @@ namespace Vidly.Controllers
             //aqui como temos um controller do Customer e temos q adicionar um combo com os membershipstypes, tive que criar uma viewmodel com as infos, boas praticas de solid
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipType = membershipType // recebo a lista no meu ienumerable da minha viewmodel
             };
 
@@ -33,6 +34,7 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if(!ModelState.IsValid)

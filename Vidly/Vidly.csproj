@@ -270,6 +270,7 @@
     <Content Include="Documentos\ASP.NET-MVC-Fundamentals-Cheat-Sheet.pdf" />
     <Content Include="Documentos\ASP.NET-MVC-Fundamentals-Exercise-Hints.pdf" />
     <Content Include="Documentos\Building-Forms-Cheat-Sheet.pdf" />
+    <Content Include="Documentos\Implementing-Validation-Cheat-Sheet.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
