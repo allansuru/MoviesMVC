@@ -45,12 +45,12 @@ namespace Vidly.Controllers
 
             var viewModel = new MovieFormViewModel
             {
-                Genre = genres
+                Genres = genres
             };
 
 
 
-            return View("CustomerForm", viewModel);
+            return View("MovieForm", viewModel);
         }
         public ActionResult Details(int id)
         {
@@ -64,29 +64,41 @@ namespace Vidly.Controllers
 
         public ActionResult Edit(int id)
         {
-            var movies = _context.Movie.SingleOrDefault(c => c.Id == id);
+            var movie = _context.Movie.SingleOrDefault(c => c.Id == id);
 
-            var genres = _context.Genres.ToList();
 
-            if (movies == null)
+            if (movie == null)
                 return HttpNotFound();
 
 
-            var viewModel = new MovieFormViewModel()
+            var viewModel = new MovieFormViewModel(movie)
             {
-                Movie = movies,
-                Genre = _context.Genres.ToList()
+           
+                Genres = _context.Genres.ToList()
             };
 
 
-            return View("CustomerForm", viewModel);
+            return View("MovieForm", viewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MovieFormViewModel(movie)
+                {
+                    Genres = _context.Genres.ToList()
+                };
+
+                return View("MovieForm", viewModel);
+            }
 
             if (movie.Id == 0)
-                _context.Movie.Add(movie);          
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movie.Add(movie);
+            }
             else
             {
                 var movieInDb = _context.Movie.Single(c => c.Id == movie.Id);
@@ -95,9 +107,8 @@ namespace Vidly.Controllers
                 //TryUpdateModel(customerInDb); //abordagem ruim, porem, oficial da MS.
                 //aqui entraria um automapper pra fazer isso com uma linha só 
                 //Mapper.Map(customer, customerInDb);
-#endregion
+                #endregion
                 movieInDb.Name = movie.Name;
-                movieInDb.DateAdded = movie.DateAdded;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
                 movieInDb.GenreId = movie.GenreId;
                 movieInDb.NumberInStock = movie.NumberInStock;
