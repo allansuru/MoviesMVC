@@ -30,7 +30,7 @@ namespace Vidly.Controllers
 
     
 
-            var movies = _context.Movie.Include(c => c.Genre).ToList();
+            var movies = _context.Movies.Include(c => c.Genre).ToList();
 
 
             // var movies2 = _context.Movies.ToList();
@@ -54,7 +54,7 @@ namespace Vidly.Controllers
         }
         public ActionResult Details(int id)
         {
-            var movie = _context.Movie.Include(m => m.Genre).FirstOrDefault(m => m.GenreId == id);
+            var movie = _context.Movies.Include(m => m.Genre).FirstOrDefault(m => m.GenreId == id);
 
             if (movie == null)
                 return HttpNotFound();
@@ -64,7 +64,7 @@ namespace Vidly.Controllers
 
         public ActionResult Edit(int id)
         {
-            var movie = _context.Movie.SingleOrDefault(c => c.Id == id);
+            var movie = _context.Movies.SingleOrDefault(c => c.Id == id);
 
 
             if (movie == null)
@@ -97,11 +97,11 @@ namespace Vidly.Controllers
             if (movie.Id == 0)
             {
                 movie.DateAdded = DateTime.Now;
-                _context.Movie.Add(movie);
+                _context.Movies.Add(movie);
             }
             else
             {
-                var movieInDb = _context.Movie.Single(c => c.Id == movie.Id);
+                var movieInDb = _context.Movies.Single(c => c.Id == movie.Id);
 
                 #region Notas - AutoMapper
                 //TryUpdateModel(customerInDb); //abordagem ruim, porem, oficial da MS.

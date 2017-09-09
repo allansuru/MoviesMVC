@@ -171,10 +171,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\CustomersController.cs" />
+    <Compile Include="Controllers\Api\MoviesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Dtos\CustomerDto.cs" />
+    <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,6 +289,7 @@
     <Content Include="Documentos\ASP.NET-MVC-Fundamentals-Exercise-Hints.pdf" />
     <Content Include="Documentos\Building-Forms-Cheat-Sheet.pdf" />
     <Content Include="Documentos\Implementing-Validation-Cheat-Sheet.pdf" />
+    <Content Include="Documentos\Building-Web-APIs-Cheat-Sheet.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
