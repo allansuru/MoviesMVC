@@ -70,7 +70,7 @@ namespace Vidly.Controllers
             if (movie == null)
                 return HttpNotFound();
 
-
+            //construtor
             var viewModel = new MovieFormViewModel(movie)
             {
            
