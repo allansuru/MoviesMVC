@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Vidly.Models.Customer>
 
-@{ 
+@{
     ViewBag.Title = "Customers";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -8,31 +8,58 @@
 
 <h2>Customers</h2>
 <br />
-@if(!Model.Any())
+@if (!Model.Any())
 {
     <p> don't have any Customers yet</p>
 }
 else
 {
-    @Html.ActionLink("Create", "New","Customer", new { @class = "btn btn-info" });
+    @Html.ActionLink("Create", "New", "Customer", new { @class = "btn btn-info" });
     <br /><br />
-    <table class="table table-bordered table-hover">
+    <table id="customers" class="table table-bordered table-hover">
         <thead>
             <tr>
                 <th>Customers</th>
                 <th>Membership Type</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var customer in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(item.Name,"Edit","Customers",new { id = item.Id }, null)</td>
-                    <td>@item.MembershipType.Name</td>
+                    <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
+                    <td>@customer.MembershipType.Name</td>
+                    <td>
+                        <button data-customer-id="@customer.Id" class="btn btn-link js-del">Delete</button>
+                    </td>
 
                 </tr>
-               
+
             }
         </tbody>
     </table>
+}
+
+@section scripts
+{
+    <script>
+        $(function () {
+            $('#customers').bind('click',"js-del", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want delete this customer?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/customers/" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            success: function () {
+                                button.parents("tr").remove();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 }
