@@ -24,6 +24,11 @@ namespace Vidly.Controllers.Api
 
             var movies = _context.Movies.Where(m => newRental.MovieIds.Contains(m.Id)).ToList();
 
+
+            /*    Equivalente no select ADO
+            select* from Movies where Id in(5, 8, 10) 
+           */
+
             foreach (var movie in movies)
             {
                 if (movie.NumberAvailable == 0)

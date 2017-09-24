@@ -9,3 +9,19 @@ https://msdn.microsoft.com/pt-br/library/jj591330.aspx
 Logo após criar um ponto de restore, vou atualizar o bganco
 
 2 º - Update-Database
+
+
+--
+
+
+Facilitando as coisas com um select
+
+ SELECT c.Name as 'Cliente', m.Name as 'Filme Alugado', g.Name as 'Genêro', m.NumberInStock, m.NumberAvailable as Cliente, BirthDate, DateRented FROM Customers AS C
+  INNER JOIN  Rentals AS R
+  ON C.Id = R.Customer_Id
+  inner join Movies as m
+  on
+  r.Movie_Id = m.Id
+  inner join Genres as g
+  on m.GenreId = g.Id
+  
