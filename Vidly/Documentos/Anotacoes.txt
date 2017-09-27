@@ -25,3 +25,13 @@ Facilitando as coisas com um select
   inner join Genres as g
   on m.GenreId = g.Id
   
+
+  --
+  zencoding -- FUNFA SÓ COM WEB ESSENTIALS PLUG-IN
+
+  div.form-group>label+input[type='text'].form-control
+
+
+  PACKGES
+
+  Install-Package Twitter.Typeahead -- AUTOCOMPLETE
