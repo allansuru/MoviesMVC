@@ -35,3 +35,4 @@ Facilitando as coisas com um select
   PACKGES
 
   Install-Package Twitter.Typeahead -- AUTOCOMPLETE
+  Install-Package toastr -- Toastr

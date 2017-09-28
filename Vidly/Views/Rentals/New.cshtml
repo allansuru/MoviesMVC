@@ -98,10 +98,10 @@
                     data: vm
                 })
                     .done(function () {
-                        console.log("done");
+                        toastr.success("Os filmes selecionados foram alugados com sucesso!","Filme Alugado")
                     })
                     .fail(function () {
-
+                        toastr.error("Algo deu errado", "BAM");
                     });
 
 
