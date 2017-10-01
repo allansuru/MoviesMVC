@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using System.Web.UI;
 
 namespace Vidly.Controllers
@@ -14,6 +15,10 @@ namespace Vidly.Controllers
 
         public ActionResult About()
         {
+
+
+            throw new Exception("Excessão forçada");
+
             ViewBag.Message = "Your application description page.";
 
             return View();

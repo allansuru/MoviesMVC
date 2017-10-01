@@ -32,8 +32,15 @@ Facilitando as coisas com um select
 
   div.form-group>label+input[type='text'].form-control
 
+  //paleta de cores
+  https://color.adobe.com
+
 
   PACKGES
 
   Install-Package Twitter.Typeahead -- AUTOCOMPLETE
   Install-Package toastr -- Toastr
+  Install-Package Elmah --  Error Logging Modules and Handlers || pra visualizar os erros == /elmah.axd
+  Install-Package Glimpse -Version 1.8.6  ----Glimpse is a web debugging and diagnostics tool used to gain a betterunderstanding of whats happening inside of your ASP.NET 4.0 application. For ASP.NET MVC3 support, please NuGet Glimpse.MVC3. 
+  
+  pra ativar  == /glimpse.axd
