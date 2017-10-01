@@ -9,7 +9,8 @@ https://msdn.microsoft.com/pt-br/library/jj591330.aspx
 Logo após criar um ponto de restore, vou atualizar o bganco
 
 2 º - Update-Database
-
+3 º - Todos os scripts - Update-Database -Script -SourceMigration:Rental
+//	gera o script desse item do migration, repare que "Rental" é o nome q ta  la no MigrationHistory
 
 --
 
